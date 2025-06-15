@@ -2,34 +2,30 @@ using UnityEngine;
 
 public class ArmFollowManager : MonoBehaviour
 {
-    [Tooltip("The arm that follows first (right hand)")]
+    public Animator animator;
     public ArmFollower rightArm;
-
-    [Tooltip("The other arm to swap in (left hand)")]
     public ArmFollower leftArm;
 
     void Start()
     {
-        // On start: right follows, left does not
-        if (rightArm != null) rightArm.StartFollowing();
-        if (leftArm  != null) leftArm.StopFollowing();
+        rightArm.StartFollowing();
+        leftArm.StopFollowing();
     }
 
     void Update()
     {
-        if (rightArm == null || leftArm == null) return;
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // if right is active, switch to left; otherwise switch back
             if (rightArm.isFollowing)
             {
+                animator.SetBool("blockleft", true);
                 rightArm.StopFollowing();
                 leftArm.StartFollowing();
                 Debug.Log("Switched to LEFT arm");
             }
             else
             {
+                animator.SetBool("blockleft", false);
                 leftArm.StopFollowing();
                 rightArm.StartFollowing();
                 Debug.Log("Switched to RIGHT arm");

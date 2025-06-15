@@ -1215,7 +1215,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpSpeed: 25
   maxDistance: 1.84
-  mainCam: {fileID: 1397159320}
   isFollowing: 0
 --- !u!1 &353668285
 GameObject:
@@ -5272,6 +5271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d590be8cb227a24f94f3889e7def032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1528280039}
   rightArm: {fileID: 265382339}
   leftArm: {fileID: 1658821068}
 --- !u!1 &1598995540
@@ -5394,7 +5394,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0.36, y: -0.08, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.41482496, y: 0.031585693, z: 0}
+  m_ConnectedAnchor: {x: 0.41479492, y: 0.031585693, z: 0}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -5703,7 +5703,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -1.01, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.3505162, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.15040807, y: 0, z: 0}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -5922,7 +5922,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpSpeed: 25
   maxDistance: 1.84
-  mainCam: {fileID: 1397159320}
   isFollowing: 0
 --- !u!1 &1722633765
 GameObject:

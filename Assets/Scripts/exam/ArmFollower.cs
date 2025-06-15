@@ -1,13 +1,13 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+
 public class ArmFollower : MonoBehaviour
 {
     public float lerpSpeed = 5f;          // How fast the arm moves
     public float maxDistance = 2f;        // How far it can reach
 
     private Rigidbody rb;
-    public Camera mainCam;
+    private Camera mainCam;
     public bool isFollowing = false;      // Controlled externally
 
     void Start()

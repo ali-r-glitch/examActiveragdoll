@@ -30,13 +30,13 @@ public class Forces : MonoBehaviour
             isRightArm = !isRightArm;
             
         }
-        _limbFollower.FollowMouse(Camera.main);
+      //  _limbFollower.FollowMouse(Camera.main);
 
     }
 
     private void Start()
     {
-        _limbFollower = new RagdollLimbFollower(leftUpperArm, followForce: 60f, maxDistance: 2f);
+       // _limbFollower = new RagdollLimbFollower(leftUpperArm, followForce: 60f, maxDistance: 2f);
 
     }
     

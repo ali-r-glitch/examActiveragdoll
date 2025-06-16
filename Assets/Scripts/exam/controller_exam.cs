@@ -23,30 +23,32 @@ public class controller_exam : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                hips.AddForce(hips.transform.forward * speed * 1.5f);
-            }
-            else
-            {
-                hips.AddForce(hips.transform.forward * speed);
-            }
-
-
-        }  if (Input.GetKey(KeyCode.A))
-        {
-            hips.AddForce(-hips.transform.right *strafespeed* 1.5f);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            hips.AddForce(-hips.transform.forward *speed* 1.5f);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            hips.AddForce(hips.transform.right *strafespeed* 1.5f);
-        }
+        
+        // if (Input.GetKey(KeyCode.W))
+        // {
+        //     if (Input.GetKey(KeyCode.LeftShift))
+        //     {
+        //         hips.AddForce(hips.transform.forward * speed * 1.5f);
+        //     }
+        //     else
+        //     {
+        //         hips.AddForce(hips.transform.forward * speed);
+        //     }
+        //
+        //
+        // }  if (Input.GetKey(KeyCode.A))
+        // {
+        //     hips.AddForce(-hips.transform.right *strafespeed* 1.5f);
+        // }
+        //
+        // if (Input.GetKey(KeyCode.S))
+        // {
+        //     hips.AddForce(-hips.transform.forward *speed* 1.5f);
+        // }
+        // if (Input.GetKey(KeyCode.D))
+        // {
+        //     hips.AddForce(hips.transform.right *strafespeed* 1.5f);
+        // }
 
 
 

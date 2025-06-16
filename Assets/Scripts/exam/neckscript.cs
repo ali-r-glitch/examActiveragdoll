@@ -16,11 +16,14 @@ public class neckscript : MonoBehaviour
     [SerializeField] private Material green;
     private void OnCollisionEnter(Collision other)
     {
+        Debug.Log("hit");
+        
         Vector3 relativeVelocity = other.relativeVelocity;
 
-
+        Debug.Log(relativeVelocity.ToString());
         float impactForce = relativeVelocity.magnitude / Time.fixedDeltaTime;
         currenthealth -= impactForce;
+        other.rigidbody.velocity = Vector3.zero;
         if (currenthealth <= 0) ;
         {
             Destroy(gameObject);

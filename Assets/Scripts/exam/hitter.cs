@@ -19,6 +19,6 @@ public class hitter : MonoBehaviour
 
   float impactForce = rb.mass * relativeVelocity.magnitude / Time.fixedDeltaTime;
 
-  Debug.Log("Impact force: " + impactForce);
+//  Debug.Log("Impact force: " + impactForce);
  }
 }

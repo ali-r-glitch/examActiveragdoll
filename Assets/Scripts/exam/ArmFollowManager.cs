@@ -1,35 +1,42 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ArmFollowManager : MonoBehaviour
 {
-    public Animator animator;
     public ArmFollower rightArm;
     public ArmFollower leftArm;
 
-    void Start()
+    private Vector2 aimInput;
+
+    public void OnControlarm(InputAction.CallbackContext ctx)
     {
-        rightArm.StartFollowing();
-        leftArm.StopFollowing();
+        Vector2 dir = ctx.ReadValue<Vector2>();
+        Debug.Log("Right Stick (controlarm): " + dir);
+        aimInput = dir;
+    }
+
+
+    public void OnSwitchArm(InputAction.CallbackContext ctx)
+    {
+        if (!ctx.performed) return;
+
+        if (rightArm.isFollowing)
+        {
+            rightArm.StopFollowing();
+            leftArm.StartFollowing();
+        }
+        else
+        {
+            leftArm.StopFollowing();
+            rightArm.StartFollowing();
+        }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (rightArm.isFollowing)
-            {
-                animator.SetBool("blockleft", true);
-                rightArm.StopFollowing();
-                leftArm.StartFollowing();
-                Debug.Log("Switched to LEFT arm");
-            }
-            else
-            {
-                animator.SetBool("blockleft", false);
-                leftArm.StopFollowing();
-                rightArm.StartFollowing();
-                Debug.Log("Switched to RIGHT arm");
-            }
-        }
+        if (rightArm.isFollowing)
+            rightArm.SetDirection(aimInput);
+        else if (leftArm.isFollowing)
+            leftArm.SetDirection(aimInput);
     }
 }

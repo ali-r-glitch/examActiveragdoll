@@ -1382,11 +1382,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7629fe999b577d14daad77d6555e77b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhealth: 3000000
-  currenthealth: 3000000
+  ismiddle: 0
   red: {fileID: 2100000, guid: 5e29d82ae7d02d54e92bcefbefafd414, type: 2}
   yellow: {fileID: 2100000, guid: 8e13ba21327c4f341b4fee1a0bbd281b, type: 2}
   green: {fileID: 2100000, guid: 760dae1ad694db04abbdc9b3989372e8, type: 2}
+  hitCooldownDuration: 0.5
 --- !u!153 &6575634673638090899
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -6406,11 +6406,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7629fe999b577d14daad77d6555e77b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhealth: 3000000
-  currenthealth: 3000000
+  ismiddle: 0
   red: {fileID: 2100000, guid: 5e29d82ae7d02d54e92bcefbefafd414, type: 2}
   yellow: {fileID: 2100000, guid: 8e13ba21327c4f341b4fee1a0bbd281b, type: 2}
   green: {fileID: 2100000, guid: 760dae1ad694db04abbdc9b3989372e8, type: 2}
+  hitCooldownDuration: 0.5
 --- !u!153 &2165885826132342753
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -7362,11 +7362,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7629fe999b577d14daad77d6555e77b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxhealth: 3000000
-  currenthealth: 3000000
+  ismiddle: 1
   red: {fileID: 2100000, guid: 5e29d82ae7d02d54e92bcefbefafd414, type: 2}
   yellow: {fileID: 2100000, guid: 8e13ba21327c4f341b4fee1a0bbd281b, type: 2}
   green: {fileID: 2100000, guid: 760dae1ad694db04abbdc9b3989372e8, type: 2}
+  hitCooldownDuration: 0.5
 --- !u!153 &4402089251349889278
 ConfigurableJoint:
   m_ObjectHideFlags: 0

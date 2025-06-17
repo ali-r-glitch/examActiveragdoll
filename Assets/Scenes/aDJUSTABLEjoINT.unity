@@ -707,14 +707,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 123932927087465949, guid: 2b7e970c7ebfceb468093009ac021a46, type: 3}
-      propertyPath: maxhealth
-      value: 3000000
-      objectReference: {fileID: 0}
-    - target: {fileID: 123932927087465949, guid: 2b7e970c7ebfceb468093009ac021a46, type: 3}
-      propertyPath: currenthealth
-      value: 3000000
-      objectReference: {fileID: 0}
     - target: {fileID: 2172927297130160342, guid: 2b7e970c7ebfceb468093009ac021a46, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1273.36
@@ -759,25 +751,9 @@ PrefabInstance:
       propertyPath: lm
       value: 
       objectReference: {fileID: 1109215474}
-    - target: {fileID: 6154002077145116684, guid: 2b7e970c7ebfceb468093009ac021a46, type: 3}
-      propertyPath: maxhealth
-      value: 3000000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6154002077145116684, guid: 2b7e970c7ebfceb468093009ac021a46, type: 3}
-      propertyPath: currenthealth
-      value: 3000000
-      objectReference: {fileID: 0}
     - target: {fileID: 7041748274974116710, guid: 2b7e970c7ebfceb468093009ac021a46, type: 3}
       propertyPath: m_Name
       value: player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7779282508213399096, guid: 2b7e970c7ebfceb468093009ac021a46, type: 3}
-      propertyPath: maxhealth
-      value: 3000000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7779282508213399096, guid: 2b7e970c7ebfceb468093009ac021a46, type: 3}
-      propertyPath: currenthealth
-      value: 3000000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

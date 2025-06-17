@@ -53,6 +53,24 @@ public partial class @PLayermovement: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchArmsDivan"",
+                    ""type"": ""Button"",
+                    ""id"": ""681b56d0-3dbd-4ffa-911b-57eda7dbcdce"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ResetDivan"",
+                    ""type"": ""Button"",
+                    ""id"": ""aad07d28-fb37-4617-b22a-b8fcf202e72b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -62,7 +80,7 @@ public partial class @PLayermovement: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""gamepad"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -73,7 +91,7 @@ public partial class @PLayermovement: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""gamepad"",
                     ""action"": ""ArmMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -84,21 +102,57 @@ public partial class @PLayermovement: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""gamepad"",
                     ""action"": ""Join"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""419944e6-5cf6-4072-879d-b082510c422f"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchArmsDivan"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8e34d51e-4a64-4365-b542-da83d186ab11"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""gamepad"",
+                    ""action"": ""ResetDivan"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""gamepad"",
+            ""bindingGroup"": ""gamepad"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_ArmMove = m_Player.FindAction("ArmMove", throwIfNotFound: true);
         m_Player_Join = m_Player.FindAction("Join", throwIfNotFound: true);
+        m_Player_SwitchArmsDivan = m_Player.FindAction("SwitchArmsDivan", throwIfNotFound: true);
+        m_Player_ResetDivan = m_Player.FindAction("ResetDivan", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,6 +217,8 @@ public partial class @PLayermovement: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_ArmMove;
     private readonly InputAction m_Player_Join;
+    private readonly InputAction m_Player_SwitchArmsDivan;
+    private readonly InputAction m_Player_ResetDivan;
     public struct PlayerActions
     {
         private @PLayermovement m_Wrapper;
@@ -170,6 +226,8 @@ public partial class @PLayermovement: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @ArmMove => m_Wrapper.m_Player_ArmMove;
         public InputAction @Join => m_Wrapper.m_Player_Join;
+        public InputAction @SwitchArmsDivan => m_Wrapper.m_Player_SwitchArmsDivan;
+        public InputAction @ResetDivan => m_Wrapper.m_Player_ResetDivan;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -188,6 +246,12 @@ public partial class @PLayermovement: IInputActionCollection2, IDisposable
             @Join.started += instance.OnJoin;
             @Join.performed += instance.OnJoin;
             @Join.canceled += instance.OnJoin;
+            @SwitchArmsDivan.started += instance.OnSwitchArmsDivan;
+            @SwitchArmsDivan.performed += instance.OnSwitchArmsDivan;
+            @SwitchArmsDivan.canceled += instance.OnSwitchArmsDivan;
+            @ResetDivan.started += instance.OnResetDivan;
+            @ResetDivan.performed += instance.OnResetDivan;
+            @ResetDivan.canceled += instance.OnResetDivan;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -201,6 +265,12 @@ public partial class @PLayermovement: IInputActionCollection2, IDisposable
             @Join.started -= instance.OnJoin;
             @Join.performed -= instance.OnJoin;
             @Join.canceled -= instance.OnJoin;
+            @SwitchArmsDivan.started -= instance.OnSwitchArmsDivan;
+            @SwitchArmsDivan.performed -= instance.OnSwitchArmsDivan;
+            @SwitchArmsDivan.canceled -= instance.OnSwitchArmsDivan;
+            @ResetDivan.started -= instance.OnResetDivan;
+            @ResetDivan.performed -= instance.OnResetDivan;
+            @ResetDivan.canceled -= instance.OnResetDivan;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -218,10 +288,21 @@ public partial class @PLayermovement: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+    private int m_gamepadSchemeIndex = -1;
+    public InputControlScheme gamepadScheme
+    {
+        get
+        {
+            if (m_gamepadSchemeIndex == -1) m_gamepadSchemeIndex = asset.FindControlSchemeIndex("gamepad");
+            return asset.controlSchemes[m_gamepadSchemeIndex];
+        }
+    }
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnArmMove(InputAction.CallbackContext context);
         void OnJoin(InputAction.CallbackContext context);
+        void OnSwitchArmsDivan(InputAction.CallbackContext context);
+        void OnResetDivan(InputAction.CallbackContext context);
     }
 }
